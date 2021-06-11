@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+
+<header>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="row jumbo-container justify-content-center">
+          <h1 class="row display-4 col-12 justify-content-center">Weather Dashboard</h1>
+          <div class="row justify-content-center col-12"id="time"></div>
+          <p class="row lead col-12 justify-content-center">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+        </div>
+      </div>
+</header>
+<body>
+    <div class= "row col-4">
+    <nav class="navbar navbar-light bg-light">
+        <form class="form-inline">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </nav>
+    </div>
+    
+    <!-- div container where the search results will populate in -->
+    <div class= "row col-8" id="search-results"></div>
+
+</body>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+<script src= "script.js"></script>
+</html>
