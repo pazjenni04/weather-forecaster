@@ -23,20 +23,22 @@ function getApi() {
         return response.json();
     
     })
-    .then(function (data) {
+    .then(data => displayResults(data.results));
         
-        for(var i = 0; i < data.length; i++) {
-        var listItems = document.createElement("li");
+};
 
-        listItems.textContent = data[i].main;
-        listItems.textContent = data[i].name;
-        listItems.textContent = data[i].weather[0].description;
-        searchResults.appendChild(listItems);
+displayResults = data => {
+    var name = document.createElement('div');
+    var main = document.createElement('div');
+    var description = document.createElement('div');
 
-    };
+    name.innerText = "City name: $(data.name)";
+    main.innerText = "$(data.main)";
+    description.innerText = "Description: $(data.weather[0].description";
 
-});
-
+    searchResults.appendChild(name);
+    searchResults.appendChild(main);
+    searchResults.appendChild(description);
 };
 
 //eventlistener takes the value from the user
@@ -50,16 +52,15 @@ userInput.addEventListener("input", function() {
 //need results displayed on the page
 
 //when the user clicks on the search button, it will concatenate the url along with the user's input and should relocate the window with the results
-function search() {
-    var results = requestURL+ "zip=" + userInput + ",us&appid=11a183a9809c0b88f3ea75fbbf8c9613"
+function search(event) {
+    event.preventDefault();
+
+    var results = requestURL+ "zip=" + userInput.value + ",us&appid=11a183a9809c0b88f3ea75fbbf8c9613"
     window.location.href = results;
+    console.log(results);
 
 };
 
-//if the user clicks the search button, the system should retrieve the api
-if(search){
-    getApi();
-};
 
 
 //when you click on the search button, it will run the function getApi
