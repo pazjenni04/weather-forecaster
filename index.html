@@ -21,18 +21,21 @@
     <div class= "row col-4">
     <nav class="navbar navbar-light bg-light">
         <form class="form-inline">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <input class="form-control mr-sm-2" id="input" type="search" placeholder="Zip code" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" id= "searchBtn" onclick= "search()" type= "submit">Search</button>
         </form>
       </nav>
     </div>
     
     <!-- div container where the search results will populate in -->
-    <div class= "row col-8" id="search-results"></div>
+    <div class= "row col-8 weather-container" id="search-results">
+    
+    </div>
 
 </body>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
-<script src= "script.js"></script>
+<script type="text/javascript" src= "script.js"></script>
+
 </html>
