@@ -105,7 +105,7 @@ function displayzips() {
     var zipCodes = JSON.parse(localStorage.getItem('zips'));
     var zipCodeString = "";
 
-    zipCodes.forEach(function(zipcodes){
+    zipCodes.forEach(function (zipcodes) {
     for(var i=0; i < zipCodes.length; i++){
           
     zipCodeString +='<li>'+ zipCodes[i] + '</li>';
@@ -120,7 +120,6 @@ function displayzips() {
     document.getElementById("zipcodeResults").innerHTML = zipCodeString;
     zipCodeString.className = "displayzips";
 
-    // zipresults.appendChild(zipCodeString);
 };
 
 displayzips();
