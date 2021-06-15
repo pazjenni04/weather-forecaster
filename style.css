@@ -1,0 +1,98 @@
+#title {
+    font-size: 100px;
+    font-weight: 100px;
+}
+
+#time {
+    font-size: 25px;
+    font-weight: 100px;
+}
+
+.displayzips {
+    padding: 10px;
+    border: 2px;
+    margin: 10px;
+    font-family: 'Fira Sans Condensed', sans-serif;
+    font-size: 30px;
+    color: blue;
+    width: fit-content;
+    font-weight: 10px;
+    display: inline-block;
+}
+
+.weather-container {
+    position: relative;
+    display: block;
+}
+
+.name {
+    text-align: center;
+    font-size: 50px;
+    display: block;
+    position: relative;
+    font-family: 'Fjalla One', sans-serif;
+    font-family: 'Quicksand', sans-serif;
+
+}
+
+.coordinates {
+    text-align: center;
+    font-size: 30px;
+    display: block;
+    position: relative;
+    font-family: 'Fjalla One', sans-serif;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.feelsLike {
+    text-align: center;
+    font-size: 30px;
+    display: block;
+    position: relative;
+    font-family: 'Fjalla One', sans-serif;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.humidity {
+    text-align: center;
+    font-size: 30px;
+    display: block;
+    position: relative;
+    font-family: 'Fjalla One', sans-serif;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.pressure {
+    text-align: center;
+    font-size: 30px;
+    display: block;
+    position: relative;
+    font-family: 'Fjalla One', sans-serif;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.temperature {
+    text-align: center;
+    font-size: 30px;
+    display: block;
+    position: relative;
+    font-family: 'Fjalla One', sans-serif;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.description {
+    text-align: center;
+    font-size: 30px;
+    display: block;
+    position: relative;
+    font-family: 'Fjalla One', sans-serif;
+    font-family: 'Quicksand', sans-serif;
+}
+
+/* .displayzips:hover{
+    -webkit-box-shadow: 0px 0px 100px 0px #00AB6A;
+    -moz-box-shadow: 0px 0px 100px 0px #00C47A;
+    box-shadow: 0px 0px 100px 0px #59EC55;
+} */
+
+
