@@ -101,14 +101,26 @@ function saveToLocal() {
 };
 
 function displayzips() {
-    var displayedsearch = document.createElement('div');
-    displayedsearch.className = "displayzips";
-
-
+    
     var zipCodes = JSON.parse(localStorage.getItem('zips'));
-    displayedsearch.textContent = zipCodes;
+    var zipCodeString = "";
 
-    zipresults.appendChild(displayedsearch);
-}
+    zipCodes.forEach(function(zipcodes){
+    for(var i=0; i < zipCodes.length; i++){
+          
+    zipCodeString +='<li>'+ zipCodes[i] + '</li>';
+    
+    };
+    
+});
+
+    zipCodeString = '<ul>' + zipCodeString + '</ul>'
+    console.log(zipCodeString);
+
+    document.getElementById("zipcodeResults").innerHTML = zipCodeString;
+    zipCodeString.className = "displayzips";
+
+    // zipresults.appendChild(zipCodeString);
+};
 
 displayzips();
