@@ -2,7 +2,7 @@
 
 The objective of this webpage is to display the weather in an area the user inputs by zipcode.  When the user first navigates to the website, they will be presented with the a blank page, a search bar, the top instructions and the current time displayed.
 
-![The first window the user will be presented with](images\initial-image.PNG)
+![The first window the user will be presented with](https://raw.githubusercontent.com/pazjenni04/weather-forecaster/main/images/initial-image.PNG)
 
 The user is instructed to enter a zipcode of their choosing in order to search for the current weather in that area.
 
