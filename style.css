@@ -10,7 +10,11 @@ li {
     color: white;
     width: fit-content;
     font-weight: 10px;
-    display: inline-flex;
+    display: flex;
+}
+
+#search-container {
+    display: inline-block;
 }
 
 #title {
@@ -26,6 +30,9 @@ li {
 .weather-container {
     position: relative;
     display: inline-block;
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
 }
 
 .name {

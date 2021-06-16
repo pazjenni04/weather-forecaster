@@ -15,7 +15,7 @@ function time() {
 time();
 
 
-
+//created elements to display certain info from the API onto the page when the user searches
 displayResults = data => {
     var name = document.createElement('div');
     var temp = document.createElement('div');
@@ -54,17 +54,14 @@ displayResults = data => {
     
 };
 
-//eventlistener takes the value from the user
+//eventlistener takes the value from the user's typed in zipcode
 userInput.addEventListener("input", function() {
     console.log(userInput.value)
 
 });
 
 
-//need input and when click search it should fetch api with the parameters set
-//need results displayed on the page
 
-//function gets weather's API and console log's whether the fetch was successful and console logs the results of the main properties pulling from the data
 //when the user clicks on the search button, it will concatenate the url along with the user's input and should relocate the window with the results
 function search(event) {
     event.preventDefault();
@@ -72,22 +69,41 @@ function search(event) {
     var generatedUrl = requestURL+ "zip=" + userInput.value + ",us&units=imperial&icon&appid=11a183a9809c0b88f3ea75fbbf8c9613"
     
     fetch(generatedUrl) 
-        .then(response => response.json())
+        // .then(response => response.json())
+        .then(function (response){
+            console.log(response)
+            if (response.status === 400) {
+            document.getElementById('myModal').style.display = "block";
+            } return response.json();
+        })
         .then(data => displayResults(data))
 
 
     saveToLocal();
 
-  
 };
+
+
+
+
+function clearContent() {
+    document.getElementById(searchResults).innerHTML = " "; //Need to set a for loop to clear whenever click search again
+}
+
+
+
+
+
+
+// Need to create a modalto not allow the user to click search and it add onto the array
 
 
 
 //when you click on the search button, it will run the function getApi
 document.getElementById("searchBtn").addEventListener("click", search);
 
-//once get search results, need to create local storage to store results in and display on page
-
+ 
+//saves the users entered zip codes into local storage
 var savedItem = JSON.parse(localStorage.getItem("zips")) || [];
 
 function saveToLocal() {
@@ -96,15 +112,21 @@ function saveToLocal() {
 
     savedItem.push(cityzip);
 
+    if(cityzip){
+        localStorage.setItem("zips", cityzip)
+    }
+
     localStorage.setItem("zips", JSON.stringify(savedItem));
 
 };
 
+//displays the local storage onto the page for the user to see their history
 function displayzips() {
     
     var zipCodes = JSON.parse(localStorage.getItem('zips'));
-    var zipCodeString = "";
+    var zipCodeString = ""; //created an empty string to push entered zip codes
 
+    //created a for loop so that can create a bullet point everytime a zipcode is added onto the string
     zipCodes.forEach(function (zipcodes) {
     for(var i=0; i < zipCodes.length; i++){
           
@@ -117,7 +139,7 @@ function displayzips() {
     zipCodeString = '<ul>' + zipCodeString + '</ul>'
     console.log(zipCodeString);
 
-    document.getElementById("zipcodeResults").innerHTML = zipCodeString;
+    document.getElementById("zipcodeResults").innerHTML = zipCodeString;  //displays the bullet points onto the webpage for the user to see their history
     zipCodeString.className = "displayzips";
 
 };
