@@ -4,7 +4,7 @@ The objective of this webpage is to display the weather in an area the user inpu
 
 ![The first window the user will be presented with](https://raw.githubusercontent.com/pazjenni04/weather-forecaster/main/images/initial-image.PNG)
 
-The user is instructed to enter a zipcode of their choosing in order to search for the current weather in that area.
+The user is instructed to enter a zipcode of their choosing in order to search for the current weather in that area.  On the page, the name of the city, the current temperature in fahrenheit, the lattitude and longtitude, the weather description, the humidity, the feels like, and the current pressure will display.
 
 ![This image shows the resulted page when a user searches for a zipcode](https://raw.githubusercontent.com/pazjenni04/weather-forecaster/main/images/search-results.PNG)
 
