@@ -17,6 +17,8 @@ time();
 
 //created elements to display certain info from the API onto the page when the user searches
 displayResults = data => {
+    clearContent();
+
     var name = document.createElement('div');
     var temp = document.createElement('div');
     var coordinates = document.createElement('div');
@@ -72,11 +74,13 @@ function search(event) {
         // .then(response => response.json())
         .then(function (response){
             console.log(response)
-            if (response.status === 400) {
-            document.getElementById('myModal').style.display = "block";
-            } return response.json();
+            if (!response.ok) {
+            document.querySelector(".modal").style.display = "block";
+            throw new Error("response not valid")
+            } 
+            return response.json();
         })
-        .then(data => displayResults(data))
+        .then(data => displayResults(data)).catch(err => console.log(err))
 
 
     saveToLocal();
@@ -87,36 +91,31 @@ function search(event) {
 
 
 function clearContent() {
-    document.getElementById(searchResults).innerHTML = " "; //Need to set a for loop to clear whenever click search again
+    searchResults.innerHTML = ""; //Need to set a for loop to clear whenever click search again
 }
 
-
-
-
-
-
-// Need to create a modalto not allow the user to click search and it add onto the array
-
+function tryAgain() {
+    window.location.href = "/"
+}
 
 
 //when you click on the search button, it will run the function getApi
 document.getElementById("searchBtn").addEventListener("click", search);
-
+document.getElementById("closeBtn").addEventListener("click", tryAgain);
  
 //saves the users entered zip codes into local storage
 var savedItem = JSON.parse(localStorage.getItem("zips")) || [];
 
 function saveToLocal() {
 
-    var cityzip = userInput.value
+    var cityzip = userInput.value.trim()
 
-    savedItem.push(cityzip);
-
-    if(cityzip){
-        localStorage.setItem("zips", cityzip)
+    if(cityzip !== "") {
+        savedItem.push(cityzip);
+        localStorage.setItem("zips", JSON.stringify(savedItem));
+        displayzips()
     }
 
-    localStorage.setItem("zips", JSON.stringify(savedItem));
 
 };
 
@@ -128,12 +127,9 @@ function displayzips() {
 
     //created a for loop so that can create a bullet point everytime a zipcode is added onto the string
     zipCodes.forEach(function (zipcodes) {
-    for(var i=0; i < zipCodes.length; i++){
           
-    zipCodeString +='<li>'+ zipCodes[i] + '</li>';
-    
-    };
-    
+    zipCodeString +='<li>'+ zipcodes + '</li>';
+
 });
 
     zipCodeString = '<ul>' + zipCodeString + '</ul>'

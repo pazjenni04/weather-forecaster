@@ -20,7 +20,7 @@
         <div class="row jumbo-container justify-content-center">
           <h1 class="row display-4 col-12 justify-content-center" id= "title">Weather Dashboard</h1>
           <div class="row justify-content-center col-12" id="time"></div>
-          <p class="row lead col-12 justify-content-center">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+          <p class="row lead col-12 justify-content-center" id="jumbotron-p">Please enter a zipcode to find out the current weather in that area.</p>
         </div>
       </div>
 </header>
@@ -33,26 +33,23 @@
         </form>
       </nav>
     </div>
-    <!-- modal that displays if didn't enter a correct zip code -->
-    <div id ="myModal" data-modal="show">
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+    <!-- Modal -->
+    <div class="modal" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <h5 class="modal-title">Try Again</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            ...
+            <p>Please enter a valid zip code.</p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" id="closeBtn" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
-    </div>
-
         </div>
       </div>
     </div>
